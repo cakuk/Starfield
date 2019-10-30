@@ -6,13 +6,13 @@ void setup()
 		a[i] = new Particle();
 	}
 	a[0] = new OddballParticle();
-	size(500, 500);
+	size(600, 600);
 }
 void draw()
 {
 	background(150);
 	fill(0);
-	ellipse(250, 250, 70, 50);
+	ellipse(300, 300, 80, 60);
 	for(int i = 0; i < a.length; i = i + 1) {
 		a[i].move();
 		a[i].show();
@@ -24,21 +24,23 @@ class Particle
 	int myColor;
 
 	Particle() {
-		mySize = 5;
-		myX = myY = 250;
+		mySize = Math.random() * 5;
+		myX = myY = 300;
 		myAngle = Math.random() * (2 * Math.PI);
-		mySpeed = Math.random() * 15;
+		mySpeed = (Math.random() * 10) + 25;
 		myColor = color((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 150) + 50);
 	}
 	void move() {
 		myX = myX + (Math.cos(myAngle) * mySpeed);
 		myY = myY + (Math.sin(myAngle) * mySpeed);
-		mySize = mySize + 0.08;
+		mySize = mySize + 0.04;
 
-		if(myX > 500 || myX < 0 || myY > 500 || myY < 0) {
-			myX = 250;
-			myY = 250;
-			mySize = 5;
+		if(myX > 600 || myX < 0 || myY > 600 || myY < 0) {
+			mySize = Math.random() * 5;
+			myX = myY = 300;
+			myAngle = Math.random() * (2 * Math.PI);
+			mySpeed = Math.random() * 15;
+			myColor = color((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 150) + 50);		
 		}
 	}
 	void show() {
