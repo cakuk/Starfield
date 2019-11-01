@@ -74,6 +74,12 @@ class OddballParticle extends Particle
 		rectMode(CENTER);
 		fill(myColor);
 		rect((float)myX, (float)myY, 50, 50);
+		fill(0);
+		ellipse((float)myX - 5, (float)myY, 5, 10);
+		ellipse((float)myX + 5, (float)myY, 5, 10);
+		stroke(0);
+		strokeWeight(2);
+		line((float)myX + 3, (float)myY + 10, (float)myX - 3, (float)myY + 10);
 	}
 
 
